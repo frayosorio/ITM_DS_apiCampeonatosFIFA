@@ -1,6 +1,7 @@
 package apicampeonatosfifa.apicampeonatosfifa.aplicacion;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -24,8 +25,8 @@ public class SeleccionServicio implements ISeleccionServicio {
 
     @Override
     public Seleccion obtener(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'obtener'");
+        Optional<Seleccion> seleccion = repositorio.findById(id);
+        return seleccion.isEmpty() ? null : seleccion.get();
     }
 
     @Override
@@ -35,15 +36,15 @@ public class SeleccionServicio implements ISeleccionServicio {
     }
 
     @Override
-    public Seleccion agregar(Seleccion Seleccion) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'agregar'");
+    public Seleccion agregar(Seleccion seleccion) {
+        seleccion.setId(0);
+        return repositorio.save(seleccion);
     }
 
     @Override
-    public Seleccion modificar(Seleccion Seleccion) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'modificar'");
+    public Seleccion modificar(Seleccion seleccion) {
+        Optional<Seleccion> seleccionEncontrada = repositorio.findById(seleccion.getId());
+        return seleccionEncontrada.isEmpty() ? null : repositorio.save(seleccion);
     }
 
     @Override

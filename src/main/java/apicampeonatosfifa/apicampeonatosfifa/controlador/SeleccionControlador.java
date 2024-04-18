@@ -5,9 +5,12 @@ import java.util.List;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import apicampeonatosfifa.apicampeonatosfifa.core.dominio.Seleccion;
 import apicampeonatosfifa.apicampeonatosfifa.core.interfaces.servicios.ISeleccionServicio;
+
 
 @RestController
 @RequestMapping("api/selecciones")
@@ -23,5 +26,22 @@ public class SeleccionControlador {
     public List<Seleccion> listar() {
         return servicio.listar();
     }
+
+    @RequestMapping(value = "/obtener/{id}", method = RequestMethod.GET)
+    public Seleccion obtener(@PathVariable  int id) {
+        return servicio.obtener(id);
+    }
+
+    @RequestMapping(value = "/agregar", method = RequestMethod.POST)
+    public Seleccion agregar(@RequestBody  Seleccion seleccion) {
+        return servicio.agregar(seleccion);
+    }
+
+    @RequestMapping(value = "/modificar", method = RequestMethod.PUT)
+    public Seleccion modificar(@RequestBody  Seleccion seleccion) {
+        return servicio.modificar(seleccion);
+    }
+
+
 
 }
