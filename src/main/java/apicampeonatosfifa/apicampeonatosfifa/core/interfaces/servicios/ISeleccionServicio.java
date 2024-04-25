@@ -12,9 +12,9 @@ public interface ISeleccionServicio {
 
     public List<Seleccion> buscar(String nombre);
 
-    public Seleccion agregar(Seleccion Seleccion);
+    public Seleccion agregar(Seleccion seleccion);
 
-    public Seleccion modificar(Seleccion Seleccion);
+    public Seleccion modificar(Seleccion seleccion);
 
     public boolean eliminar(int id);
 

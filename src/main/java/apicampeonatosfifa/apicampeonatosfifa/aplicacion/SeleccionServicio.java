@@ -49,8 +49,12 @@ public class SeleccionServicio implements ISeleccionServicio {
 
     @Override
     public boolean eliminar(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'eliminar'");
+        try {
+            repositorio.deleteById(id);
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
     }
 
 }

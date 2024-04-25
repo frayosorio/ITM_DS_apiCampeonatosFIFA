@@ -2,43 +2,43 @@ package apicampeonatosfifa.apicampeonatosfifa.controlador;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import apicampeonatosfifa.apicampeonatosfifa.core.dominio.Seleccion;
-import apicampeonatosfifa.apicampeonatosfifa.core.interfaces.servicios.ISeleccionServicio;
+import apicampeonatosfifa.apicampeonatosfifa.core.dominio.Campeonato;
+import apicampeonatosfifa.apicampeonatosfifa.core.interfaces.servicios.ICampeonatoServicio;
 
 @RestController
-@RequestMapping("api/selecciones")
-public class SeleccionControlador {
+@RequestMapping("api/campeonatos")
+public class CampeonatoControlador {
+    
+    private ICampeonatoServicio servicio;
 
-    private ISeleccionServicio servicio;
-
-    public SeleccionControlador(ISeleccionServicio servicio) {
+    public CampeonatoControlador(ICampeonatoServicio servicio) {
         this.servicio = servicio;
     }
 
     @RequestMapping(value = "/listar", method = RequestMethod.GET)
-    public List<Seleccion> listar() {
+    public List<Campeonato> listar() {
         return servicio.listar();
     }
 
     @RequestMapping(value = "/obtener/{id}", method = RequestMethod.GET)
-    public Seleccion obtener(@PathVariable int id) {
+    public Campeonato obtener(@PathVariable int id) {
         return servicio.obtener(id);
     }
 
     @RequestMapping(value = "/agregar", method = RequestMethod.POST)
-    public Seleccion agregar(@RequestBody Seleccion seleccion) {
-        return servicio.agregar(seleccion);
+    public Campeonato agregar(@RequestBody Campeonato campeonato) {
+        return servicio.agregar(campeonato);
     }
 
     @RequestMapping(value = "/modificar", method = RequestMethod.PUT)
-    public Seleccion modificar(@RequestBody Seleccion seleccion) {
-        return servicio.modificar(seleccion);
+    public Campeonato modificar(@RequestBody Campeonato campeonato) {
+        return servicio.modificar(campeonato);
     }
 
     @RequestMapping(value = "/eliminar/{id}", method = RequestMethod.DELETE)
