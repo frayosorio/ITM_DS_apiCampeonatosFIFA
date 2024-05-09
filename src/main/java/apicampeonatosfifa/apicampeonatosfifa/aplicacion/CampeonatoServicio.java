@@ -11,7 +11,7 @@ import apicampeonatosfifa.apicampeonatosfifa.core.interfaces.servicios.ICampeona
 
 @Service
 public class CampeonatoServicio implements ICampeonatoServicio {
-    
+
     private ICampeonatoRepositorio repositorio;
 
     public CampeonatoServicio(ICampeonatoRepositorio repositorio) {
@@ -31,8 +31,7 @@ public class CampeonatoServicio implements ICampeonatoServicio {
 
     @Override
     public List<Campeonato> buscar(String nombre) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscar'");
+        return repositorio.buscar(nombre);
     }
 
     @Override

@@ -14,7 +14,7 @@ import apicampeonatosfifa.apicampeonatosfifa.core.interfaces.servicios.ICampeona
 @RestController
 @RequestMapping("api/campeonatos")
 public class CampeonatoControlador {
-    
+
     private ICampeonatoServicio servicio;
 
     public CampeonatoControlador(ICampeonatoServicio servicio) {
@@ -44,6 +44,11 @@ public class CampeonatoControlador {
     @RequestMapping(value = "/eliminar/{id}", method = RequestMethod.DELETE)
     public boolean eliminar(@PathVariable int id) {
         return servicio.eliminar(id);
+    }
+
+    @RequestMapping(value = "/buscar/{nombre}", method = RequestMethod.GET)
+    public List<Campeonato> buscar(@PathVariable String nombre) {
+        return servicio.buscar(nombre);
     }
 
 }

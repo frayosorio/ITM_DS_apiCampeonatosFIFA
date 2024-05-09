@@ -31,8 +31,7 @@ public class SeleccionServicio implements ISeleccionServicio {
 
     @Override
     public List<Seleccion> buscar(String nombre) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscar'");
+        return repositorio.buscar(nombre);
     }
 
     @Override
@@ -56,5 +55,4 @@ public class SeleccionServicio implements ISeleccionServicio {
             return false;
         }
     }
-
 }

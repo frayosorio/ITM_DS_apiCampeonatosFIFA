@@ -46,4 +46,9 @@ public class SeleccionControlador {
         return servicio.eliminar(id);
     }
 
+    @RequestMapping(value = "/buscar/{nombre}", method = RequestMethod.GET)
+    public List<Seleccion> buscar(@PathVariable String nombre) {
+        return servicio.buscar(nombre);
+    }
+
 }
